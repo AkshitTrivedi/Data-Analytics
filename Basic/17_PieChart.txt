@@ -1,0 +1,27 @@
+====================================================================================================================================================
+Name - Akshit Trivedi
+Roll No - 40
+Class - MCA-2
+Subject - Data Analytics Assignment
+Practical Assignment
+====================================================================================================================================================
+
+Q=17. implementation of pie chart.         
+
+# Import libraries
+import matplotlib.pyplot as plt
+import numpy as np
+
+
+# Creating dataset
+Lastnames = ['Sagar', 'Kamal', 'Akshit', 'Sijo', 'Hardik', 'Umang']
+
+data = [7,6,10,7,12,8]
+
+# Creating plot
+
+plt.pie(data, labels = Lastnames)
+plt.title("Most common Last Names in India")
+
+# show plot
+plt.show()

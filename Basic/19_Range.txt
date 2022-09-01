@@ -1,0 +1,36 @@
+====================================================================================================================================================
+Name - Akshit Trivedi
+Roll No - 40
+Class - MCA-2
+Subject - Data Analytics Assignment
+Practical Assignment
+====================================================================================================================================================
+
+Q=19. implementation of Range.         
+					   
+import math
+import pandas as pd
+
+data = [22,21,14,12,42,22,55,42,-91,140]
+r= max(data)- min(data)
+
+df = pd.DataFrame(data,columns=['x'])
+print(df)
+print("Range =", r)
+
+================================OUTPUT================================
+
+runfile('C:/Users/TEMP/.spyder-py3/temp.py', wdir='C:/Users/TEMP/.spyder-py3')
+
+     x
+0   22
+1   21
+2   14
+3   12
+4   42
+5   22
+6   55
+7   42
+8  -91
+9  140
+Range = 231

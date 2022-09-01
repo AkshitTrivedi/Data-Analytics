@@ -1,0 +1,74 @@
+====================================================================================================================================================
+Name - Akshit Trivedi
+Roll No - 40
+Class - MCA-2
+Subject - Data Analytics Assignment
+Practical Assignment
+====================================================================================================================================================
+
+Q=24. implementation of Z Score.         
+
+import math
+import pandas as pd
+
+data = [22,41,7,5,12,62,35,38,-81,127]
+
+df = pd.DataFrame(data,columns=['x'])
+M = sum(data)/len(data)
+xi_x = []
+
+for i in range(df.shape[0]):
+    xi_x.append(df.iat[i,0]-M)
+    
+df['xi-x'] = xi_x
+sq_xi_x = []    
+
+for i in range(df.shape[0]):
+    sq_xi_x.append(round(pow(df.iat[i,1],2), 2))
+    
+    
+df['(xi-x)2']=sq_xi_x
+variance=sum(sq_xi_x)/len(sq_xi_x)
+std_dev=math.sqrt(variance)
+#print(df)
+
+print("variance =",variance)
+print("standard deviation =",std_dev)
+z_score=[]    
+
+for i in range(df.shape[0]):
+    z_score.append(df.iat[i, 1]/std_dev)
+    
+df['Z-Score']=z_score    
+print(df)
+
+lst = []
+out = []
+
+for i in range(df.shape[0]):
+    if  -2 <= df.iat[i, 3] <= 2:
+        lst.append(df.iat[i, 0])
+    else:
+        out.append(df.iat[i, 0])
+        
+        
+print("Dataset After Removing Outlier :",lst)
+print("Outlier =",out)
+
+================================OUTPUT================================
+
+variance = 2440.3599999999997
+standard deviation = 49.4
+     x   xi-x   (xi-x)2   Z-Score
+0   22   -4.8     23.04 -0.097166
+1   41   14.2    201.64  0.287449
+2    7  -19.8    392.04 -0.400810
+3    5  -21.8    475.24 -0.441296
+4   12  -14.8    219.04 -0.299595
+5   62   35.2   1239.04  0.712551
+6   35    8.2     67.24  0.165992
+7   38   11.2    125.44  0.226721
+8  -81 -107.8  11620.84 -2.182186
+9  127  100.2  10040.04  2.028340
+Dataset After Removing Outlier : [22, 41, 7, 5, 12, 62, 35, 38]
+Outlier = [-81, 127]

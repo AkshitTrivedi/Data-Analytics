@@ -1,0 +1,58 @@
+====================================================================================================================================================
+Name - Akshit Trivedi
+Roll No - 40
+Class - MCA-2
+Subject - Data Analytics Assignment
+Practical Assignment
+====================================================================================================================================================
+
+Q=3. implementation of Coefficient of Varience.     
+
+import math
+#import statistics
+import pandas as pd
+
+data = [50,15,33,55,45,32,40,21,50]
+
+df = pd.DataFrame(data,columns=['x'])
+M = (round((sum(data)/len(data)),2))
+xi_x = []
+sq_xi_x = []
+
+
+for i in range(df.shape[0]):
+    xi_x.append(round((df.iat[i,0]-M),2))
+    sq_xi_x.append(round(pow(xi_x[i],2),2))
+    
+df['xi-x'] = xi_x    
+df['(xi-x)2']=sq_xi_x
+
+variance=(round(sum(sq_xi_x)/len(sq_xi_x),2))
+std_dev=(round(math.sqrt(variance),2))
+co=(round(((std_dev/M)*100),2))
+
+print('\n',df)
+print("\nmean =",M)
+print("variance =",variance)
+print("standard deviation =",std_dev)
+print("coefficient of variation =",co,"%")
+
+================================OUTPUT================================
+
+runfile('C:/Users/TEMP/.spyder-py3/temp.py', wdir='C:/Users/TEMP/.spyder-py3')
+
+      x   xi-x  (xi-x)2
+0   50   6.56    43.03
+1   15 -28.44   808.83
+2   33 -10.44   108.99
+3   55  11.56   133.63
+4   45   1.56     2.43
+5   32 -11.44   130.87
+6   40  -3.44    11.83
+7   21 -22.44   503.55
+8  100  56.56  3199.03
+
+mean = 43.44
+variance = 549.13
+standard deviation = 23.43
+coefficient of variation = 53.94 %

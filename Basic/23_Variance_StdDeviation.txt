@@ -1,0 +1,54 @@
+====================================================================================================================================================
+Name - Akshit Trivedi
+Roll No - 40
+Class - MCA-2
+Subject - Data Analytics Assignment
+Practical Assignment
+====================================================================================================================================================
+
+Q=23. implementation of Varience,standard deviation. 
+					
+import math
+import pandas as pd
+
+data = [18,32,48,38,35,45,50,49,40]
+
+df = pd.DataFrame(data,columns=['x'])
+M = sum(data)/len(data)
+xi_x = []
+
+for i in range(df.shape[0]):
+    xi_x.append(df.iat[i,0]-M)
+    
+df['xi-x'] = xi_x
+sq_xi_x = []    
+
+for i in range(df.shape[0]):
+    sq_xi_x.append(round(pow(df.iat[i,1],2), 2))
+    
+    
+df['(xi-x)2']=sq_xi_x
+variance=sum(sq_xi_x)/len(sq_xi_x)
+std_dev=math.sqrt(variance)
+
+print(df)
+
+print("variance =",variance)
+print("standard deviation =",std_dev)
+
+================================OUTPUT================================
+
+runfile('C:/Users/TEMP/.spyder-py3/temp.py', wdir='C:/Users/TEMP/.spyder-py3')
+
+    x       xi-x  (xi-x)2
+0  18 -21.444444   459.86
+1  32  -7.444444    55.42
+2  48   8.555556    73.20
+3  38  -1.444444     2.09
+4  35  -4.444444    19.75
+5  45   5.555556    30.86
+6  50  10.555556   111.42
+7  49   9.555556    91.31
+8  40   0.555556     0.31
+variance = 93.80222222222223
+standard deviation = 9.685154734036118

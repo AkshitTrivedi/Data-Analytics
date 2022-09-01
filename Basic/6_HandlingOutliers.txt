@@ -1,0 +1,35 @@
+====================================================================================================================================================
+Name - Akshit Trivedi
+Roll No - 40
+Class - MCA-2
+Subject - Data Analytics Assignment
+Practical Assignment
+====================================================================================================================================================
+
+Q=6. Handling Outlier.             
+					   	   
+import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+
+sample= [39, 45, 28, 57, 23, 16, 45, 22, 29, 60, 11, 1000]
+
+# Finding Outliers:
+
+# Computing 10th, 90th percentiles and replacing the outliers
+tenth_percentile = np.percentile(sample, 10)
+ninetieth_percentile = np.percentile(sample, 90)
+
+# print(tenth_percentile, ninetieth_percentile)
+b = np.where(sample<tenth_percentile, tenth_percentile, sample)
+b = np.where(b>ninetieth_percentile, ninetieth_percentile, b)
+
+print("Sample:", sample)
+print("Data after Removing Outlier:\n",b)
+
+================================OUTPUT================================
+
+runfile('C:/Users/TEMP/.spyder-py3/temp.py', wdir='C:/Users/TEMP/.spyder-py3')
+Sample: [39, 45, 28, 57, 23, 16, 45, 22, 29, 60, 11, 1000]
+Data after Removing Outlier:
+ [39.  45.  28.  57.  23.  16.6 45.  22.  29.  59.7 16.6 59.7]

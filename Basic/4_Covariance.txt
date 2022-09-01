@@ -1,0 +1,69 @@
+====================================================================================================================================================
+Name - Akshit Trivedi
+Roll No - 40
+Class - MCA-2
+Subject - Data Analytics Assignment
+Practical Assignment
+====================================================================================================================================================
+
+Q=4. implementation of Co-Varience.       
+
+import pandas as pd
+import math
+df=pd.read_csv("test.csv")
+
+mean_x=sum(df['x'])/df.shape[0]
+mean_y=sum(df['y'])/df.shape[0]
+
+xi_x=[]
+yi_y=[]
+sq_xi_x = []
+sq_yi_y = []
+xi_x_yi_y=[]
+
+for i in range(df.shape[0]):
+    xi_x.append(round((df.iat[i,0] - mean_x),2))
+    yi_y.append(round((df.iat[i,1] - mean_y),2))
+    sq_xi_x.append(round(pow(xi_x[i],2),2))
+    sq_yi_y.append(round(pow(yi_y[i],2),2))
+    xi_x_yi_y.append(round(((xi_x[i])*(yi_y[i])),2))
+    
+df['xi-x'] = xi_x
+df['yi-y'] = yi_y
+df['(xi-x)2']=sq_xi_x
+df['(yi-y)2']=sq_yi_y
+df['(xi-x)(yi-y)'] = xi_x_yi_y
+
+vx=sum(sq_xi_x)/len(sq_xi_x)
+vy=sum(sq_yi_y)/len(sq_yi_y)
+
+sxy=sum(xi_x_yi_y)/len(xi_x_yi_y)
+sx=math.sqrt(vx)
+sy=math.sqrt(vy)
+rxy=round((sxy/(sx*sy)),2)
+
+print("\n",df)
+print("\nmean of x =",mean_x)
+print("mean of y =",mean_y)
+print("\nCovariance =",sxy)
+print("Coefficient of correlation =",rxy)
+
+================================OUTPUT================================
+
+runfile('C:/Users/TEMP/.spyder-py3/temp.py', wdir='C:/Users/TEMP/.spyder-py3')
+
+      x   xi-x  (xi-x)2
+0   50   6.56    43.03
+1   15 -28.44   808.83
+2   33 -10.44   108.99
+3   55  11.56   133.63
+4   45   1.56     2.43
+5   32 -11.44   130.87
+6   40  -3.44    11.83
+7   21 -22.44   503.55
+8  100  56.56  3199.03
+
+mean = 43.44
+variance = 549.13
+standard deviation = 23.43
+coefficient of variation = 53.94 %

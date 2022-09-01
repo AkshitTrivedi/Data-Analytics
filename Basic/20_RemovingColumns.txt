@@ -1,0 +1,32 @@
+====================================================================================================================================================
+Name - Akshit Trivedi
+Roll No - 40
+Class - MCA-2
+Subject - Data Analytics Assignment
+Practical Assignment
+====================================================================================================================================================
+
+Q=20. Removing Unnecessory Columns.        
+					     
+import matplotlib.pyplot as plt
+import pandas as pd
+import numpy as np
+
+df = pd.read_csv("test.csv")
+
+# removing all nullvalues rows:
+f1 = df.dropna() # drops rows with 1 or more Null value
+print(f1.isnull().sum())
+
+#removing all Duplicates value:
+f2=df.drop_duplicates(subset="Name",keep= False,inplace=True)
+print("duplicate Data:",f2)
+
+================================OUTPUT================================
+
+runfile('C:/Users/TEMP/.spyder-py3/temp.py', wdir='C:/Users/TEMP/.spyder-py3')
+
+x    0
+y    0
+dtype: int64
+duplicate Data: None

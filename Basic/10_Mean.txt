@@ -1,0 +1,40 @@
+====================================================================================================================================================
+Name - Akshit Trivedi
+Roll No - 40
+Class - MCA-2
+Subject - Data Analytics Assignment
+Practical Assignment
+====================================================================================================================================================
+
+Q=10. implementation of mean.           |
+	
+import pandas as pd 
+
+df=pd.read_csv("test.csv")
+print(df)
+sum=0
+print("n=",df.shape[0])
+for i in range(df.shape[0]):  #for(int i=0;i<df.shape[0];i++)
+   sum=sum + df.iat[i,0]
+
+print("mean =",sum/df.shape[0])
+
+================================OUTPUT================================
+
+runfile('C:/Users/TEMP/.spyder-py3/temp.py', wdir='C:/Users/TEMP/.spyder-py3')
+
+Dataset after arrange in ascending Order
+     x    y
+3    8   12
+0   14   20
+2   17   27
+1   25   33
+4  120  260
+no. of element = 5
+Q1 position = 2
+Q1 position = 4
+Q1 = 14
+Q3 = 25
+Upper bound = 41.5 Lower bound = -2.5
+dataset after removing outlier : [8, 14, 17, 25]
+Outlier [120]

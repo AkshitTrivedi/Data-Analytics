@@ -1,0 +1,27 @@
+====================================================================================================================================================
+Name - Akshit Trivedi
+Roll No - 40
+Class - MCA-2
+Subject - Data Analytics Assignment
+Practical Assignment
+====================================================================================================================================================
+
+Q=7.  implementation of Histogram chart. 
+
+# Import libraries
+import matplotlib.pyplot as plt
+import numpy as np
+
+
+# Creating dataset
+a = [287,275,265,262,272,284,272,308,272,275,274,302,315,282,270,285,297,264,256,383]
+
+# Creating histogram
+fig, ax = plt.subplots(figsize =(10, 7))
+ax.hist(a, bins = [250, 260, 270, 280, 290, 300, 310])
+
+# Show plot
+plt.xlabel("Annual base salary ($1000)")
+plt.ylabel("superintendents")
+plt.title("Candidate Salaries distribution")
+plt.show()
